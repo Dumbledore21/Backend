@@ -1,0 +1,48 @@
+
+async function main(){
+
+    let file = readTextFile(dataload.js);
+    let totJason = null;
+
+    console.log("Check");
+
+    for (let i = 0; i < 3; i++) { 
+
+        // get URI 
+        let uri = "xxx";
+
+        let jsonInfo = await getName(uri);
+        jsonInfo["internalRef"] = i+1; 
+        jsonInfo["URIForMinting"] = i+1;
+        totJason++;
+    }
+}
+
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+const getName = async(uri) => {
+    try {
+    let response = await fetch(uri);
+    let responseJson = await response.json();
+    return responseJson;
+    } catch(error) {
+    console.error(error);
+    }
+}
