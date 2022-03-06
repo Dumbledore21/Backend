@@ -20,8 +20,9 @@ app.use(urlencoded({extended: false}));
 app.use(json());
 
 app.use(cors(corsOptions))
-console.log("test")
-mintNFT("AVabPm3PB7JxaNND5UKJRXQh4XRY4Mwjkg2nGAEG3TGn","TESTHII");
+
+// Uncomment the below to test the mint function with a pubKey 
+//mintNFT("AVabPm3PB7JxaNND5UKJRXQh4XRY4Mwjkg2nGAEG3TGn","TESTHII");
 
 app.post("/post", (req, res) => {
   console.log("Connected to React");
